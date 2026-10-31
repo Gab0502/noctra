@@ -1,0 +1,234 @@
+/* The studio as a volume: boards and printed objects on the lattice fabric, one centred axis */
+.studio {
+  padding: 120px var(--margin) var(--section-gap);
+  display: grid;
+  gap: 16px;
+}
+.studio > * {
+  width: 100%;
+  max-width: 1040px;
+  margin-inline: auto;
+}
+
+/* ── Cover board ── */
+.board {
+  background: var(--color-surface-lowest);
+  padding: clamp(40px, 6vw, 88px) clamp(20px, 5vw, 72px);
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 24px;
+}
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-title);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--color-parchment);
+}
+.lead {
+  margin: 0;
+  max-width: 34ch;
+  font-size: var(--step-lead);
+  line-height: 1.3;
+  color: var(--color-ink);
+}
+.coverPlate {
+  margin: 16px 0 0;
+  width: 100%;
+  background: var(--color-surface);
+  padding: clamp(12px, 2vw, 24px);
+  display: grid;
+  gap: 12px;
+  text-align: left;
+}
+.coverImage {
+  position: relative;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  filter: saturate(0.55) brightness(0.8);
+}
+.imprint {
+  margin: 0;
+  font-size: 16px;
+  color: var(--color-ink-soft);
+}
+
+/* ── Parts: chapter openings in the reference's style ── */
+.part {
+  display: grid;
+  gap: 16px;
+}
+.partOpen {
+  background: var(--color-surface-lowest);
+  padding: clamp(64px, 9vw, 128px) clamp(20px, 6vw, 96px) clamp(48px, 6vw, 88px);
+  display: grid;
+  gap: 18px;
+}
+.partLabel {
+  margin: 0;
+  font-size: var(--step-small);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-brass);
+}
+.partTitle {
+  margin: 0;
+  max-width: 14ch;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(44px, 5.6vw, 92px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+/* ── The programme: cream card on the dark fabric ── */
+.programme {
+  background: var(--color-parchment);
+  color: #000;
+  padding: clamp(32px, 5vw, 72px) clamp(20px, 6vw, 96px);
+  text-align: center;
+}
+.programmeHead {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(34px, 4vw, 56px);
+  letter-spacing: -0.01em;
+}
+.programmeSub,
+.programmeFoot {
+  margin: 6px 0 0;
+  font-style: italic;
+  color: #3a352b;
+}
+.programmeFoot { margin-top: 40px; }
+.castList {
+  list-style: none;
+  margin: 40px auto 0;
+  padding: 0;
+  max-width: 720px;
+  display: grid;
+  gap: 4px;
+}
+.castRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "name city" "role city";
+  align-items: baseline;
+  column-gap: 24px;
+  padding: 18px 20px;
+  background: rgb(0 0 0 / 0.05);
+  text-align: left;
+}
+.castName {
+  grid-area: name;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.05;
+}
+.castRole {
+  grid-area: role;
+  font-size: 16px;
+  font-style: italic;
+  color: #3a352b;
+}
+.castCity {
+  grid-area: city;
+  align-self: center;
+  font-size: 16px;
+  font-style: italic;
+  color: #3a352b;
+}
+
+/* ── The spread: text page facing the plate ── */
+.spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: clamp(32px, 5vw, 72px) clamp(20px, 4vw, 56px);
+  background: var(--color-surface-lowest);
+  display: grid;
+  gap: 40px;
+  align-content: start;
+}
+.step {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 16px;
+}
+.stepIcon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-surface-container);
+  color: var(--color-brass);
+  font-size: 16px;
+}
+.stepTitle {
+  margin: 4px 0 8px;
+  font-size: var(--step-lead);
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+.stepBody {
+  margin: 0;
+  font-size: var(--step-body);
+  color: var(--color-parchment);
+}
+.spreadPlate {
+  margin: 0;
+  background: var(--color-surface);
+  padding: clamp(12px, 1.6vw, 20px);
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+.spreadImage {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+/* ── Close ── */
+.close {
+  background: var(--color-surface-lowest);
+  padding: clamp(72px, 10vw, 140px) clamp(20px, 5vw, 72px);
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 24px;
+}
+.closeTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.4vw, 84px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+}
+.closeBody {
+  margin: 0;
+  font-size: var(--step-body);
+  color: var(--color-parchment);
+}
+
+@media (max-width: 900px) {
+  .studio { padding: 88px 12px 96px; gap: 12px; }
+  .title { font-size: 15vw; }
+  .partTitle { font-size: 34px; max-width: none; }
+  .coverImage { aspect-ratio: 4 / 3; }
+  .spread { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .castRow { grid-template-columns: 1fr; grid-template-areas: "name" "role" "city"; }
+  .castCity { margin-top: 6px; }
+}

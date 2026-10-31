@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  subtitle    String?
+  category    String?
+  location    String?
+  year        String?
+  coverImage  String?
+  published     Boolean  @default(false)
+  craftContent  Json?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  modules       Module[]
+}
+
+model Module {
+  id           String  @id @default(cuid())
+  projectId    String
+  project      Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  type         String
+  order        Int
+  isChapter    Boolean @default(false)
+  chapterLabel String?
+  chapterIcon  String?
+  content      Json    @default("{}")
+}

@@ -1,0 +1,117 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: end;
+  background: var(--color-ground);
+  overflow: hidden;
+}
+
+.picture {
+  position: absolute;
+  inset: 0;
+}
+.cover {
+  object-fit: cover;
+  object-position: 50% 70%;
+  transform: scale(1.06); /* crops the scan's paper edge */
+}
+.dusk {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transition: opacity var(--dur-slow) linear;
+}
+/* A neutral scrim so the page below continues the same black without a seam */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgb(0 0 0 / 0.35) 0%, rgb(0 0 0 / 0.3) 35%, rgb(0 0 0 / 0.78) 70%, #000 100%); /* taste-skill-ignore: neutral scrim over a photo */
+}
+
+.content {
+  position: relative;
+  padding: 120px var(--margin) 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+
+.band {
+  margin: 0;
+  text-align: center;
+}
+.name {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(88px, 21.4vw, 380px);
+  line-height: 0.82;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+/* Unlit buildings are dim stone; lit ones are the brass light source */
+.letter {
+  color: rgb(208 198 175 / 0.3);
+  transition: color 1.2s linear;
+}
+.letter[data-lit="true"] { color: var(--color-brass-light); }
+
+.foot {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) auto auto;
+  align-items: end;
+  gap: 24px 48px;
+}
+.statement {
+  margin: 0;
+  max-width: 44ch;
+  font-size: var(--step-lead);
+  line-height: 1.3;
+  color: var(--color-ink);
+}
+
+.hours {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.hour {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 16px;
+  color: var(--color-ink-soft);
+  cursor: pointer;
+  transition: color var(--dur-medium) linear, background-color var(--dur-medium) linear;
+}
+.hour:hover { color: var(--color-ink); background: rgb(255 255 255 / 0.06); }
+.hour[aria-pressed="true"] { color: var(--color-on-brass); background: var(--color-brass-light); }
+.hourNote {
+  min-width: 9em;
+  padding-left: 12px;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--color-parchment);
+}
+
+.action { white-space: nowrap; }
+
+.credit { margin: 0; }
+
+@media (max-width: 1100px) {
+  .foot { grid-template-columns: 1fr; justify-items: start; }
+}
+
+@media (max-width: 600px) {
+  .hero { min-height: 92svh; }
+  .content { padding: 96px 16px 24px; gap: 24px; }
+  .statement { font-size: 20px; }
+  .name { font-size: 20.6vw; }
+  .hours { flex-wrap: wrap; }
+  .hour { padding: 0 10px; }
+  .hourNote { flex-basis: 100%; padding: 6px 0 0; }
+}
